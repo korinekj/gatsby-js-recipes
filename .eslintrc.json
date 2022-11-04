@@ -1,0 +1,9 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "project": "./tsconfig.eslint.json"
+  },
+  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "prettier"],
+  "rules": {}
+}
