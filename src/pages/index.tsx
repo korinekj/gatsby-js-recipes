@@ -2,11 +2,16 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Layout from '../components/Layout';
 
+// CSS Modules
 import { page, text } from '../examples/home.module.scss';
+
+// Styled Components
+import Button from '../examples/button';
 
 export default function Home() {
   return (
     <Layout>
+      <Button>Click me</Button>
       <div className={page}>
         <h1>Home page</h1>
         <h1>hello world</h1>
