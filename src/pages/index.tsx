@@ -1,9 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import Layout from '../components/Layout';
 
-// CSS Modules
-import { page, text } from '../examples/home.module.scss';
+import Layout from '../components/Layout';
 
 export default function Home() {
   return (
