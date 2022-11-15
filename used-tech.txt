@@ -1,0 +1,8 @@
+React + GatsbyJS + Typescript
+
+Eslint + Prettier
+
+Sass + normalize.css
+
+React Icons
+
