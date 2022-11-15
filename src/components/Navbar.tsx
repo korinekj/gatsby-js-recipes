@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 
 import { FiAlignJustify } from 'react-icons/fi';
@@ -6,6 +6,13 @@ import { FiAlignJustify } from 'react-icons/fi';
 import logo from '../assets/images/logo.svg';
 
 function Navbar() {
+  const [showLinks, setShowLinks] = useState(false);
+
+  // Show or hide hamburger menu
+  const toggleLinks = () => {
+    setShowLinks(!showLinks);
+  };
+
   return (
     <nav className='navbar'>
       <div className='nav-center'>
@@ -13,12 +20,12 @@ function Navbar() {
           <Link to='/'>
             <img src={logo} alt='simple recipes' />
           </Link>
-          <button type='button' className='nav-btn'>
+          <button type='button' className='nav-btn' onClick={toggleLinks}>
             <FiAlignJustify />
           </button>
         </div>
 
-        <div className='nav-links show-links'>
+        <div className={showLinks ? 'nav-links show-links' : 'nav-links'}>
           <Link to='/' className='nav-link' activeClassName='active-link'>
             home
           </Link>
