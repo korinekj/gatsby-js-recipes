@@ -2,6 +2,7 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/Layout';
+import FetchData from '../examples/fetchData';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
             </div>
           </div>
         </header>
+        <FetchData />
       </main>
     </Layout>
   );
