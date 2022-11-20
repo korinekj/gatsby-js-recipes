@@ -1,49 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-interface PropTypes {
-  data: {
-    site: {
-      siteMetadata: { author: string };
-    };
-  };
-}
+import Layout from '../components/Layout';
+import Gallery from '../examples/Gallery';
 
-function Testing(props: PropTypes) {
-  const {
-    data: {
-      site: {
-        siteMetadata: { author },
-      },
-    },
-  } = props;
-
+function Testing() {
   return (
-    <div>
-      <h2>author: {author}</h2>
-    </div>
+    <Layout>
+      <main className='page'>
+        <Gallery />
+      </main>
+    </Layout>
   );
 }
-
-export const data = graphql`
-  query firstQuery {
-    site {
-      siteMetadata {
-        author
-        description
-        simpleData
-        title
-        complexData {
-          age
-          name
-        }
-        person {
-          age
-          name
-        }
-      }
-    }
-  }
-`;
 
 export default Testing;
