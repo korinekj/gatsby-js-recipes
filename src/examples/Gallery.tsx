@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import * as styles from './gallery.module.scss';
 
@@ -36,11 +36,14 @@ function Gallery() {
     <div className={styles.wrap}>
       {nodes.map((img: any, index: number) => {
         const { name } = img;
+
+        const pathToImage = getImage(img);
+
         return (
           // eslint-disable-next-line react/no-array-index-key
           <article key={index}>
             <GatsbyImage
-              image={img.childImageSharp.gatsbyImageData}
+              image={pathToImage!}
               alt={img.name}
               className={styles.test}
             />
