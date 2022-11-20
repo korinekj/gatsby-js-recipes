@@ -1,0 +1,14 @@
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  text-align: center;
+
+  .test {
+    border-radius: 1rem;
+  }
+
+  .p {
+    text-transform: capitalize;
+  }
+}
