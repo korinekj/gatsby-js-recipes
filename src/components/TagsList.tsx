@@ -1,6 +1,14 @@
 import React from 'react';
 
-function TagsList() {
+interface Props {
+  recipes: {}[];
+}
+
+function TagsList(props: Props) {
+  const { recipes } = props;
+
+  console.log(recipes);
+
   return <div>this is tagslist</div>;
 }
 
