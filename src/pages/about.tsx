@@ -6,36 +6,28 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Layout from '../components/Layout';
 import RecipesList from '../components/RecipesList';
 
-function About(props: any) {
+function About(props) {
   const { data } = props;
 
   console.log(data);
 
   const {
-    allContentfulRecipe: { nodes },
+    allContentfulRecipe: { nodes: recipes },
   } = data;
 
-  console.log(nodes);
+  console.log(recipes);
 
   return (
     <Layout>
       <main className='page'>
         <section className='about-page'>
           <article>
-            <h2>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius,
-              debitis!
-            </h2>
+            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
             <p>
               Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Soluta animi id sit sunt molestiae quasi hic,
-              nisi suscipit dicta alias.
+              adipisicing elit.
             </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam,
-              cupiditate illo voluptatum quasi, nulla libero consequatur,
-              assumenda quo commodi facere nam modi suscipit in quas!
-            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <Link to='/contact' className='btn'>
               contact
             </Link>
@@ -47,9 +39,9 @@ function About(props: any) {
             placeholder='blurred'
           />
         </section>
-        <section className=''>
-          <h5>Look at this awesomesouce!</h5>
-          <RecipesList recipes={nodes} />
+        <section className='featured-recipes'>
+          <h5>Look At This Awesomesouce!</h5>
+          <RecipesList recipes={recipes} />
         </section>
       </main>
     </Layout>
