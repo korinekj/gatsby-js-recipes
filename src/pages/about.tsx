@@ -1,21 +1,31 @@
 import React from 'react';
 
 import { Link, graphql } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+import { StaticImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import Layout from '../components/Layout';
 import RecipesList from '../components/RecipesList';
 
-function About(props) {
-  const { data } = props;
+interface AboutPageProps {
+  data: {
+    allContentfulRecipe: {
+      nodes: {
+        id: string;
+        title: string;
+        image: { gatsbyImageData: IGatsbyImageData };
+        prepTime: number;
+        cookTime: number;
+      }[];
+    };
+  };
+}
 
-  console.log(data);
+function About(props: AboutPageProps) {
+  const { data } = props;
 
   const {
     allContentfulRecipe: { nodes: recipes },
   } = data;
-
-  console.log(recipes);
 
   return (
     <Layout>

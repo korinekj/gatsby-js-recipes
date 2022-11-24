@@ -14,7 +14,6 @@ interface Props {
 
 function RecipesList(props: Props) {
   const { recipes } = props;
-  console.log(recipes[0]);
 
   return (
     <div className='recipes-list'>

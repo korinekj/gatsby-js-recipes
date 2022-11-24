@@ -29,6 +29,7 @@ module.exports = {
       },
     ],
   },
+  // graphqlTypegen: true, -> automatické generování typů pro graphql
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,

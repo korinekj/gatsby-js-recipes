@@ -1,11 +1,25 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 import Layout from '../components/Layout';
-
 import RecipesList from '../components/RecipesList';
 
-function Contact(props) {
+interface ContactPageProps {
+  data: {
+    allContentfulRecipe: {
+      nodes: {
+        id: string;
+        title: string;
+        image: { gatsbyImageData: IGatsbyImageData };
+        prepTime: number;
+        cookTime: number;
+      }[];
+    };
+  };
+}
+
+function Contact(props: ContactPageProps) {
   const { data } = props;
 
   const {
@@ -71,7 +85,7 @@ function Contact(props) {
 }
 
 export const query = graphql`
-  query {
+  query Contactpage {
     allContentfulRecipe(
       sort: { title: ASC }
       filter: { featured: { eq: true } }
