@@ -4,6 +4,20 @@ import { useStaticQuery, graphql } from 'gatsby';
 import TagsList from './TagsList';
 import RecipesList from './RecipesList';
 
+function AllRecipes() {
+  const {
+    allContentfulRecipe: { nodes: recipes },
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+  } = useStaticQuery(query);
+
+  return (
+    <section className='recipes-container'>
+      <TagsList recipes={recipes} />
+      <RecipesList recipes={recipes} />
+    </section>
+  );
+}
+
 const query = graphql`
   query {
     allContentfulRecipe(sort: { title: ASC }) {
@@ -22,20 +36,5 @@ const query = graphql`
     }
   }
 `;
-
-function AllRecipes() {
-  const {
-    allContentfulRecipe: { nodes: recipes },
-  } = useStaticQuery(query);
-
-  console.log(recipes);
-
-  return (
-    <section className='recipes-container'>
-      <TagsList recipes={recipes} />
-      <RecipesList recipes={recipes} />
-    </section>
-  );
-}
 
 export default AllRecipes;

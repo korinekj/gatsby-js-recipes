@@ -1,4 +1,5 @@
 import React from 'react';
+import setupTags from '../utils/setupTags';
 
 interface Props {
   recipes: {}[];
@@ -6,10 +7,19 @@ interface Props {
 
 function TagsList(props: Props) {
   const { recipes } = props;
-
   console.log(recipes);
 
-  return <div>this is tagslist</div>;
+  const newTags = setupTags(recipes);
+
+  console.log(newTags);
+
+  return (
+    <div>
+      {newTags.map(tag => (
+        <p>{tag}</p>
+      ))}
+    </div>
+  );
 }
 
 export default TagsList;
