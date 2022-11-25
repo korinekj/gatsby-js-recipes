@@ -4,8 +4,6 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Layout from '../components/Layout';
 import AllRecipes from '../components/AllRecipes';
 
-import FetchData from '../examples/fetchData';
-
 export default function Home() {
   return (
     <Layout>
@@ -25,7 +23,7 @@ export default function Home() {
             </div>
           </div>
         </header>
-        <FetchData />
+
         <AllRecipes />
       </main>
     </Layout>

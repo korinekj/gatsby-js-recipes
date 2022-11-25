@@ -2,22 +2,21 @@ import React from 'react';
 import setupTags from '../utils/setupTags';
 
 interface Props {
-  recipes: {}[];
+  recipes: { content: { tags: string[] } }[];
 }
 
 function TagsList(props: Props) {
   const { recipes } = props;
-  console.log(recipes);
 
   const newTags = setupTags(recipes);
 
-  console.log(newTags);
-
   return (
     <div>
-      {newTags.map(tag => (
-        <p>{tag}</p>
-      ))}
+      {newTags.map((tag, index) => {
+        console.log(tag);
+        // eslint-disable-next-line react/no-array-index-key
+        return <p key={index}>{tag}</p>;
+      })}
     </div>
   );
 }

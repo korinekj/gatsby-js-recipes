@@ -1,31 +1,20 @@
-const setupTags = recipes => {
-  console.log('hello from utils');
-  const [zero, first, second, third] = recipes;
+const setupTags = (recipes: { content: { tags: string[] } }[]) => {
+  const allTags: { [key: string]: number } = {};
 
-  console.log(zero, first, second, third);
-
-  const tags = [];
-  tags.push(zero.content.tags);
-  tags.push(first.content.tags);
-  tags.push(second.content.tags);
-  tags.push(third.content.tags);
-
-  console.log(tags);
-
-  const tagsArr = [];
-  const allTags = tags.forEach(item => {
-    item.forEach(tag => {
-      tagsArr.push(tag);
+  recipes.forEach((recipe: { content: { tags: string[] } }) => {
+    recipe.content.tags.forEach(tag => {
+      if (Object.prototype.hasOwnProperty.call(allTags, tag)) {
+        allTags[tag] += 1;
+      } else {
+        allTags[tag] = 1;
+      }
     });
   });
 
-  const mySet = new Set(tagsArr);
-  console.log(mySet);
+  const entries = Object.entries(allTags);
+  entries.sort();
 
-  const values = Array.from(mySet);
-  console.log(values.sort());
-
-  return values;
+  return entries;
 };
 
 export default setupTags;
