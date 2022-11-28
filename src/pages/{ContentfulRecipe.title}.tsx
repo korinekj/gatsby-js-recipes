@@ -2,6 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
+import { BsClockHistory, BsClock, BsPeople } from 'react-icons/bs';
+
 interface Props {
   data: {
     contentfulRecipe: {
@@ -41,6 +43,9 @@ function RecipeTemplate(props: Props) {
   return (
     <div>
       <h4>{title}</h4>
+      <BsClockHistory />
+      <BsClock />
+      <BsPeople />
     </div>
   );
 }
