@@ -20,7 +20,7 @@ function TagsList(props: Props) {
           console.log(tag);
           return (
             // eslint-disable-next-line react/no-array-index-key
-            <Link to={tag[0]} key={index}>
+            <Link to={`/${tag[0]}`} key={index}>
               {`${tag[0]} (${tag[1]})`}
               <br />
             </Link>

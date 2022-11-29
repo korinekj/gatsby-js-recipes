@@ -26,7 +26,7 @@ function Tags(props: Props) {
             const [text, value] = tag;
             return (
               // eslint-disable-next-line react/no-array-index-key
-              <Link to={text} key={index} className='tag'>
+              <Link to={`/${text}`} key={index} className='tag'>
                 <h5>{text}</h5>
                 <p>{`${value} recipe`}</p>
               </Link>
