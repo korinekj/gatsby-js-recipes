@@ -46,7 +46,7 @@ function About(props: AboutPageProps) {
             src='../assets/images/about.jpeg'
             alt='Person Pouring Salt in Bowl'
             className='about-img'
-            placeholder='blurred'
+            placeholder='tracedSVG'
           />
         </section>
         <section className='featured-recipes'>
