@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/${tag}`,
         component: path.resolve(`src/templates/tag-template.tsx`),
         context: {
-          tag: tag,
+          tag,
         },
       });
     });

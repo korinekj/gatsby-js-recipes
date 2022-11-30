@@ -1,11 +1,61 @@
 import React from 'react';
+import { graphql } from 'gatsby';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+import RecipesList from '../components/RecipesList';
+import Layout from '../components/Layout';
 
-function TagTemplate() {
+interface Props {
+  data: {
+    allContentfulRecipe: {
+      nodes: {
+        cookTime: number;
+        id: string;
+        image: { gatsbyImageData: IGatsbyImageData };
+        prepTime: number;
+        title: string;
+      }[];
+    };
+  };
+  pageContext: { tag: string };
+}
+
+function TagTemplate(props: Props) {
+  const {
+    data: {
+      allContentfulRecipe: { nodes: recipes },
+    },
+    pageContext: { tag },
+  } = props;
+
   return (
-    <div>
-      <h2>tag template page</h2>
-    </div>
+    <Layout>
+      <main className='page'>
+        <h2>{tag}</h2>
+        <div className='tag-recipes'>
+          <RecipesList recipes={recipes} />
+        </div>
+      </main>
+    </Layout>
   );
 }
+
+export const query = graphql`
+  query GetRecipeByTag($tag: String) {
+    allContentfulRecipe(
+      sort: { title: ASC }
+      filter: { content: { tags: { eq: $tag } } }
+    ) {
+      nodes {
+        id
+        title
+        cookTime
+        prepTime
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+        }
+      }
+    }
+  }
+`;
 
 export default TagTemplate;

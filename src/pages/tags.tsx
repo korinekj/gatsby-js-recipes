@@ -16,8 +16,6 @@ function Tags(props: Props) {
 
   const newTags = setupTags(tags);
 
-  console.log(newTags);
-
   return (
     <Layout>
       <main className='page'>

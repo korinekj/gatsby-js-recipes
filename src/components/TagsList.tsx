@@ -10,7 +10,6 @@ function TagsList(props: Props) {
   const { recipes } = props;
 
   const newTags = setupTags(recipes);
-  console.log(newTags);
 
   return (
     <div className='tag-container'>

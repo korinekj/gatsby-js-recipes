@@ -28,8 +28,6 @@ interface Props {
 }
 
 function RecipeTemplate(props: Props) {
-  console.log(props);
-
   const {
     data: {
       contentfulRecipe: {
@@ -45,7 +43,6 @@ function RecipeTemplate(props: Props) {
   } = props;
 
   const pathToImage = getImage(image);
-  console.log(pathToImage);
 
   return (
     <Layout>
