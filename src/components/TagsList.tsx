@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import slugify from 'slugify';
 import setupTags from '../utils/setupTags';
 
 interface Props {
@@ -17,9 +18,10 @@ function TagsList(props: Props) {
       <div className='tags-list'>
         {newTags.map((tag, index) => {
           console.log(tag);
+          const slugTag = slugify(tag[0], { lower: true });
           return (
             // eslint-disable-next-line react/no-array-index-key
-            <Link to={`/${tag[0]}`} key={index}>
+            <Link to={`/tags/${slugTag}`} key={index}>
               {`${tag[0]} (${tag[1]})`}
               <br />
             </Link>

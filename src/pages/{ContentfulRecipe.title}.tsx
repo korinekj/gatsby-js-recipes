@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+import slugify from 'slugify';
 
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
@@ -79,11 +80,14 @@ function RecipeTemplate(props: Props) {
               {/* tags */}
               <p className='recipe-tags'>
                 Tags :
-                {tags.map((tag, index) => (
-                  <Link to={tag} key={index}>
-                    {tag}
-                  </Link>
-                ))}
+                {tags.map((tag, index) => {
+                  const slugTag = slugify(tag, { lower: true });
+                  return (
+                    <Link to={`/tags/${slugTag}`} key={index}>
+                      {tag}
+                    </Link>
+                  );
+                })}
               </p>
             </article>
           </section>
