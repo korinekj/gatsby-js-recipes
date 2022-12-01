@@ -17,7 +17,6 @@ function TagsList(props: Props) {
       <h4>recipes</h4>
       <div className='tags-list'>
         {newTags.map((tag, index) => {
-          console.log(tag);
           const slugTag = slugify(tag[0], { lower: true });
           return (
             // eslint-disable-next-line react/no-array-index-key
