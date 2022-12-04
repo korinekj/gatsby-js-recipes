@@ -50,7 +50,11 @@ function Contact(props: ContactPageProps) {
             </p>
           </article>
           <article>
-            <form action='' className='form contact-form'>
+            <form
+              action='https://formspree.io/f/xeqdyjyo'
+              method='POST'
+              className='form contact-form'
+            >
               <div className='form-row'>
                 <label htmlFor='name'>
                   your name
