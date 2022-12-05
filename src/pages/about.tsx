@@ -5,6 +5,7 @@ import { StaticImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import Layout from '../components/Layout';
 import RecipesList from '../components/RecipesList';
+import SEO from '../components/SEO';
 
 interface AboutPageProps {
   data: {
@@ -29,6 +30,7 @@ function About(props: AboutPageProps) {
 
   return (
     <Layout>
+      <SEO title='About Page' description='this is about page' />
       <main className='page'>
         <section className='about-page'>
           <article>
