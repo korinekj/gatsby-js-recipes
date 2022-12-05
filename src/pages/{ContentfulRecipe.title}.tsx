@@ -8,6 +8,7 @@ import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { BsClockHistory, BsClock, BsPeople } from 'react-icons/bs';
 
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 interface Props {
   data: {
@@ -47,6 +48,7 @@ function RecipeTemplate(props: Props) {
 
   return (
     <Layout>
+      <SEO title={title} description={description} />
       <main className='page'>
         <div className='recipe-page'>
           {/* hero section */}

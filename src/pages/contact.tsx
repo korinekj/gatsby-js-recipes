@@ -4,6 +4,7 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 import Layout from '../components/Layout';
 import RecipesList from '../components/RecipesList';
+import SEO from '../components/SEO';
 
 interface ContactPageProps {
   data: {
@@ -28,6 +29,7 @@ function Contact(props: ContactPageProps) {
 
   return (
     <Layout>
+      <SEO title='Contact' />
       <main className='page'>
         <section className='contact-page'>
           <article className='contact-info'>

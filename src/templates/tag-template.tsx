@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import RecipesList from '../components/RecipesList';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 interface Props {
   data: {
@@ -29,6 +30,7 @@ function TagTemplate(props: Props) {
 
   return (
     <Layout>
+      <SEO title={tag} />
       <main className='page'>
         <h2>{tag}</h2>
         <div className='tag-recipes'>

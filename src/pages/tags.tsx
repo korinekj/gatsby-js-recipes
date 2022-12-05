@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby';
 import slugify from 'slugify';
 import Layout from '../components/Layout';
 import setupTags from '../utils/setupTags';
+import SEO from '../components/SEO';
 
 interface Props {
   data: { allContentfulRecipe: { nodes: [] } };
@@ -19,6 +20,7 @@ function Tags(props: Props) {
 
   return (
     <Layout>
+      <SEO title='Tags' />
       <main className='page'>
         <section className='tags-page'>
           {newTags.map((tag, index) => {

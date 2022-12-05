@@ -1,26 +1,41 @@
 import React from 'react';
 
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphlq } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 
 interface Props {
   title: string;
-  description: string;
+  description?: string;
 }
+
+const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`;
 
 function SEO(props: Props) {
   const { title, description } = props;
+
+  const { site } = useStaticQuery(query);
+
+  const metaDescription = description || site.siteMetadata.description;
 
   return (
     <Helmet
       htmlAttributes={{
         lang: 'en',
       }}
-      title={title}
+      title={`${title} | ${site.siteMetadata.title}`}
       meta={[
         {
           name: 'description',
-          content: description,
+          content: metaDescription,
         },
       ]}
     >
@@ -28,5 +43,9 @@ function SEO(props: Props) {
     </Helmet>
   );
 }
+
+SEO.defaultProps = {
+  description: undefined,
+};
 
 export default SEO;
