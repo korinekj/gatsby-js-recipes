@@ -5,7 +5,7 @@ function Footer() {
     <footer className='page-footer'>
       <p>
         &copy; {new Date().getFullYear()}, Jaroslav Kořínek.
-        <span>SimplyRecipes</span> Built with{' '}
+        <span> SimplyRecipes</span> Built with{' '}
         <a href='https://www.gatsbyjs.com/'>Gatsby</a>
       </p>
     </footer>
